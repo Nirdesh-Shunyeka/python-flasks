@@ -1,14 +1,18 @@
 version: 0.2
 env:
-  secrets-manager:
-    LOGIN: dev/sonar:sonartoken
-    HOST: dev/sonar:host
-    Project: dev/sonar:project
+  LOGIN: a3a2a6dce684dedb26461358d162f522bbb251cc
+  HOST: https://eco-dev-use1-sonarqube.contentservice.net/
+  Project: python-sonarqube-testing
+# env:
+#   secrets-manager:
+#     LOGIN: dev/sonar:sonartoken
+#     HOST: dev/sonar:host
+#     Project: dev/sonar:project
 phases:
   install:
     runtime-versions:
       java: corretto11
-    commands: 
+    commands:
       - apt -y update && apt -y upgrade
       - apt install -y jq
   pre_build:
