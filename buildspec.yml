@@ -1,13 +1,8 @@
 version: 0.2
 env:
-  LOGIN: a3a2a6dce684dedb26461358d162f522bbb251cc
+  LOGIN: 14552bbeb8eab190ca1750efa9c4211d5b9682ea
   HOST: https://eco-dev-use1-sonarqube.contentservice.net/
   Project: python-sonarqube-testing
-# env:
-#   secrets-manager:
-#     LOGIN: dev/sonar:sonartoken
-#     HOST: dev/sonar:host
-#     Project: dev/sonar:project
 phases:
   install:
     runtime-versions:
@@ -25,6 +20,7 @@ phases:
   build:
     commands:
       - cd ../
+      - ls
       - sonar-scanner -Dsonar.projectKey=$Project -Dsonar.sources=. -Dsonar.host.url=$HOST -Dsonar.login=$LOGIN
       - sleep 5
       - curl -u $LOGIN https://eco-dev-use1-sonarqube.contentservice.net/api/qualitygates/project_status?projectKey=$Project > result.json
