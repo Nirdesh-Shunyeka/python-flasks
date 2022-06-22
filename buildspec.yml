@@ -1,8 +1,9 @@
 version: 0.2
 env:
-  LOGIN: 14552bbeb8eab190ca1750efa9c4211d5b9682ea
-  HOST: https://eco-dev-use1-sonarqube.contentservice.net/
-  Project: python-sonarqube-testing
+  secrets-manager:
+    LOGIN: dev/test/sonar:sonartoken
+    HOST: dev/test/sonar:host
+    Project: dev/test/sonar:project
 phases:
   install:
     runtime-versions:
@@ -19,6 +20,7 @@ phases:
       - export PATH="$PATH:/opt/sonar-scanner/bin"
   build:
     commands:
+      - pwd
       - cd ../
       - ls
       - sonar-scanner -Dsonar.projectKey=$Project -Dsonar.sources=. -Dsonar.host.url=$HOST -Dsonar.login=$LOGIN
