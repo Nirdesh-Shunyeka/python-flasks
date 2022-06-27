@@ -18,11 +18,11 @@ phases:
       - unzip sonar-scanner-cli-4.7.0.2747-linux.zip
       - mv sonar-scanner-4.7.0.2747-linux /opt/sonar-scanner
       - export PATH="$PATH:/opt/sonar-scanner/bin"
+      - pwd
+      - cd $CODEBUILD_SRC_DIR
+      - ls
   build:
     commands:
-      - pwd
-      - cd ../
-      - ls
       - sonar-scanner -Dsonar.projectKey=$Project -Dsonar.sources=. -Dsonar.host.url=$HOST -Dsonar.login=$LOGIN
       - sleep 5
       - curl -u $LOGIN https://eco-dev-use1-sonarqube.contentservice.net/api/qualitygates/project_status?projectKey=$Project > result.json
