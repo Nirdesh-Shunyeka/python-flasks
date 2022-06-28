@@ -1,9 +1,9 @@
 version: 0.2
 env:
   variables:
-    LOGIN: "85d6c50d639ce62f2547f428ce9ece419ae64810"
-    HOST: "https://eco-dev-use1-sonarqube.contentservice.net/"
-    Project: "testing-sonarqube"
+    LOGIN: 
+    HOST: 
+    Project: 
 phases:
   install:
     runtime-versions:
