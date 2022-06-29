@@ -3,7 +3,7 @@ env:
   variables:
     LOGIN: "8db2d629a779b198b8ae22aad2ceeb47d4072d0d"
     HOST: "https://eco-dev-use1-sonarqube.contentservice.net/"
-    Project: "maven-sonarqube-analysis"
+    Project: "other-sonarqube-analysis"
 phases:
   install:
     runtime-versions:
