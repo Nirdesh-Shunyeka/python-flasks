@@ -1,16 +1,16 @@
 version: 0.2
 env:
   variables:
-    LOGIN: 
-    HOST: 
-    Project: 
+    LOGIN: "8db2d629a779b198b8ae22aad2ceeb47d4072d0d"
+    HOST: "https://eco-dev-use1-sonarqube.contentservice.net/"
+    Project: "analytics-processing"
 phases:
   install:
     runtime-versions:
       java: corretto11
     commands:
-      - apt -y update && apt -y upgrade
-      - apt install -y jq
+      - yum -y update && yum -y upgrade
+      - yum install -y jq
   pre_build:
     commands:
       - mkdir downloads -p && cd downloads
